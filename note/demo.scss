@@ -1,0 +1,78 @@
+
+// Variables, Nesting
+
+$color-primary: yellow;
+$color-secondary: orange;
+$color-tertiary: pink;
+$color-text-dark: #333;
+$color-text-light: grey;
+$awidth: 150px;
+
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+nav {
+    background-color: $color-primary;
+
+    @include clearfix;
+}
+
+.navigation {
+    list-style: none;
+    float: left;
+
+    li {
+        display: inline-block;
+        margin-left: 30px;
+        a {
+            text-transform: uppercase;
+            text-decoration: none;
+            color: $color-tertiary;
+        }
+
+        &:first-child {
+            margin-left: 0px;
+        }
+    }
+
+}
+
+.buttons {
+    float: right;
+}
+
+.btn-main, .btn-hot {
+    display: inline-block;
+    width: $awidth;
+    padding: 10px 20px;
+    border-radius: 100px;
+    text-align: center;
+
+    text-transform: uppercase;
+    text-decoration: none;
+    color: violet;
+}
+
+.btn-main {
+    &:link {
+        background-color: darken($color-secondary, 15%);
+    }
+
+    &:hover {
+        background-color: $color-tertiary;
+    }
+}
+
+.btn-hot {
+    &:hover {
+        background-color: $color-secondary;
+    }
+    &:link {
+        background-color: lighten($color-tertiary, 5%);
+    }
+}

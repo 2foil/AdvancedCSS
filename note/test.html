@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            
+            .inline {
+                display: inline;
+                outline: 3px black dashed;
+                background-color: cyan;
+                padding: 20px 30px;
+                margin: 20px 30px;
+            }
+
+            .base {
+                outline: 3px black dashed;
+                height: 30px;
+                background-color: blanchedalmond;
+            }
+
+        </style>
+
+    </head>
+    <body>
+
+        <h1>Block inline-block margin padding not func in vertical direction.</h1>
+
+        <div class="base" style="text-align: center;">
+            Block
+        </div>
+        
+        <div class="inline">
+            inline
+        </div>
+        <div class="inline">
+            inline
+        </div>
+        <div class="inline">
+            inline
+        </div>
+
+        <div class="base" style="display: flex;">
+        Flex
+        </div>
+
+
+        <style>
+            .fleft {
+                float: left;
+                width: 30px;
+                height: 40px;
+                background-color: blanchedalmond;
+            }
+
+            .fright {
+                float: right;
+                width: 40px;
+                height: 80px;
+                background-color: rebeccapurple;
+            }
+
+            .basediv {
+                outline: 3px black dashed;
+            }
+
+            .clearfix::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+
+        </style>
+        <h1>Clearfix</h1>
+        <div class="basediv clearfix">
+            <div class="fleft">
+            </div>
+
+            <div class="fright">
+            </div>
+
+        </div>
+
+    </body>
+</html>

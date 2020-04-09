@@ -1,0 +1,13 @@
+.nav ul {
+  padding: 10px 20px;
+  border-color: red;
+}
+.nav li {
+  padding: 0px 3px;
+}
+.nav p {
+  color: cyan;
+  line-height: 1.7;
+}
+
+/*# sourceMappingURL=test.css.map */

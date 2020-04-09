@@ -1,0 +1,55 @@
+nav {
+  background-color: yellow;
+}
+nav::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.navigation {
+  list-style: none;
+  float: left;
+}
+.navigation li {
+  display: inline-block;
+  margin-left: 30px;
+}
+.navigation li a {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: pink;
+}
+.navigation li:first-child {
+  margin-left: 0px;
+}
+
+.buttons {
+  float: right;
+}
+
+.btn-main, .btn-hot {
+  display: inline-block;
+  text-decoration: none;
+  width: 150px;
+  padding: 10px 20px;
+  border-radius: 100px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.btn-main:link {
+  background-color: #b37400;
+}
+.btn-main:hover {
+  background-color: pink;
+}
+
+.btn-hot :hover {
+  background-color: orange;
+}
+.btn-hot:link {
+  background-color: #ffdae0;
+}
+
+/*# sourceMappingURL=demo.css.map */

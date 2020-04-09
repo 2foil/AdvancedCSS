@@ -1,0 +1,132 @@
+.popup {
+    z-index: 500;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba($color-black, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s;
+
+    &:target {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &:target &__content {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    &__overlay-close {
+        display: block;
+        height: 100%;
+        width: 100%;
+        z-index: 501;
+        cursor: default;
+    }
+
+    &__content {
+        z-index: 502;
+
+        @include absCenter;
+        background-color: $color-white;
+        width: 75%;
+        border-radius: 0.5rem;
+        display: flex;
+        box-shadow: 0 1.5rem 2rem rgba($color-black, 0.3);
+        overflow: hidden;
+        transform: translate(-50%, -50%) scale(0);
+        transition: all 0.3s 0.2s;
+    }
+
+    &__left-side {
+        flex: 1;
+
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    &__right-side {
+        flex: 2;
+        align-self: center;
+        padding: 4rem;
+        position: relative;
+    }
+
+    &__terms {
+        font-size: 1.5rem;
+        column-count: 2;
+        column-gap: 4rem;
+        column-rule: 2px solid $color-grey-light-2;
+        hyphens: auto;
+    }
+
+    &__close {
+        &:link,
+        &:visited {
+            position: absolute;
+            right: 4rem;
+            top: 1rem;
+            text-decoration: none;
+            font-size: 3rem;
+            line-height: 1;
+            color: $color-grey-dark;
+        }
+
+        &:hover,
+        &:active {
+            color: $color-primary;
+        }
+    }
+
+    @include respond(tab-port) {
+
+
+        &__content {
+            padding-top: 4.5rem;
+            display: block;
+            width: 85%;
+        }
+
+        &__left-side {
+            display: block;
+            text-align: center;
+
+            img {
+                display: inline-block;
+                width: 40%;
+            }
+        }
+
+        &__right-side {
+            position: static;
+            padding: 3rem;
+        }
+
+        &__terms {
+            display: inline-block;
+            border-top: 2px solid gray;
+            font-size: 1.5rem;
+            column-count: initial;
+            height: 15rem;
+            overflow: scroll;
+        }
+
+        &__close {
+            &:link,
+            &:visited {
+                right: 2rem;
+                top: 1rem;
+                font-size: 4rem;
+            }
+        }
+
+    }
+}

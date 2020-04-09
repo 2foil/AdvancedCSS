@@ -1,0 +1,50 @@
+// ./Natours/node_modules/.bin/node-sass loading.scss loading.css
+
+@mixin circles($count, $radius) {
+    @for $i from 0 to $count {
+        &--#{$i + 1} {
+            transform: rotate( 360deg * $i / $count) translateX($radius);
+
+            &::after {
+                animation: bigger $count * .2s  cubic-bezier(0.7, 0, 0.84, 0) infinite;
+                animation-delay: $i * .2s;
+                animation-fill-mode: forwards;
+            }
+        }
+        
+    }
+}
+
+@keyframes bigger {
+    to {
+        transform: scale(.2);
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.loading {
+    position: relative;
+    height: 0.5rem;
+    width: 0.5rem;
+
+    &__circle {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+        @include circles(12, 40px);
+
+        &::after {
+            content: '';
+            opacity: 1;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: white;
+            border-radius: 50%;
+            visibility: hidden;
+        }
+    }
+
+}

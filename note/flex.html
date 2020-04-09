@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbo</title>
+
+    <style>
+
+        .container {
+            background-color: grey;
+            display: flex;
+            padding: 20px;
+            /* overflow: hidden; */
+            flex-wrap: wrap;
+            height: 500px;
+            align-content: flex-start;
+        }
+
+        .item {
+            font-size: 50px;
+            background-color: salmon;
+            padding: 30px;
+            outline: 2px dashed black;
+            margin: 20px;
+        }
+
+        .i3 {
+            flex-basis: 150px;
+            flex-shrink: 0;
+            /* height: 280px; */
+        }
+
+        .i5 {
+            flex-grow:1;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item i3">3</div>
+        <div class="item">4</div>
+        <div class="item i5">5</div>
+    </div>
+
+</body>
+</html>
