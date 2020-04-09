@@ -16,6 +16,22 @@ Grey dark 3: #999
 
 */
 
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 37.5em) { @content }; // 600px
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: 56.25em) { @content }; // 900px
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 75em) { @content };  // 1200px
+    }
+    @if $breakpoint == big-desktop {
+        @media only screen and (min-width: 112.5em) { @content };  // 1800px
+    }
+}
+
 :root {
     --color-primary: #eb2f64;
     --color-primary-light: #FF3366;
@@ -43,6 +59,16 @@ Grey dark 3: #999
 html {
     font-size: 62.5%;
     box-sizing: border-box;
+
+    @include respond(big-desktop) {
+        font-size: 75%; // 1rem = 12px, 12/16 -> 75%
+    }
+    @include respond(tab-land) {
+        font-size: 56.25%; // 1rem = 9px, 9/16 = 56.25%
+    }
+    @include respond(tab-port) {
+        font-size: 50%; // 1rem = 8px, 12/16 = 75%
+    }
 }
 
 body {

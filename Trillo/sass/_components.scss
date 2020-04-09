@@ -6,6 +6,12 @@
     align-items: center;
     justify-content: space-between;
     font-size: 1.4rem;
+
+    @media only screen and (max-width: 31.25em) {
+        height: auto !important;
+        flex-wrap: wrap;
+        padding-top: 1rem;
+    }
 }
 
 .logo {
@@ -64,6 +70,13 @@
         height: 2rem;
         fill: var(--color-grey-dark-3);
     }
+
+    @media only screen and (max-width: 31.25em) {
+        flex-basis: 100%;
+        order: 10;
+        background-color: var(--color-grey-light-2);
+        margin: 1rem 0;
+    }
 }
 //////////////////////////////////////////////////
 // user navigation
@@ -105,6 +118,9 @@
         color: #fff;
         top: 1.4rem;
         right: 1.1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     &__user-photo {
@@ -112,11 +128,13 @@
         border-radius: 50%;
         margin-right: 1rem;
     }
+
 }
 
 //////////////////////////////////////////////////
 // side-nav
 .side-nav {
+
     list-style: none;
     margin-top: 2.5rem;
     font-size: 1.4rem;
@@ -175,6 +193,40 @@
         fill: currentColor;
         margin-right: 2rem;
     }
+
+    @include respond(tab-port) {
+        display: flex;
+        margin-top: 0;
+
+        &__item {
+            flex: 1;
+            margin-bottom: 0;
+        }
+
+        &__link {
+            justify-content: center;
+            padding: 2rem !important;
+        }
+    }
+
+    @include respond(phone) {
+
+        &__link {
+            padding: 1.5rem .5rem !important;
+            flex-direction: column;
+
+            span {
+                font-size: 1.2rem;
+            }
+        }
+
+        &__icon {
+            margin-right: 0;
+            margin-bottom: .5rem;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+    }
 }
 
 .legal {
@@ -182,6 +234,10 @@
     text-align: center;
     font-size: 1.2rem;
     color: var(--color-grey-light-4);
+
+    @include respond(tab-port) {
+        display: none;
+    }
 }
 
 
@@ -252,6 +308,23 @@
         &-count {
             font-size: .5rem;
             text-transform: uppercase;
+        }
+    }
+
+    @include respond(phone) {
+
+        &__heading {
+            font-size: 1.8rem;
+            padding: 1.25rem 2rem;
+        }
+
+        &__rating {
+
+            padding: 0 1rem;
+
+            &-average {
+                font-size: 1.8rem;
+            }
         }
     }
 }
@@ -354,6 +427,14 @@
     background-color: var(--color-grey-light-1);
     display: flex;
     font-size: 1.4rem;
+
+    @include respond(phone) {
+        flex-direction: column;
+    }
+
+    @include respond(tab-port) {
+        padding: 2rem;
+    }
 }
 
 .description {
@@ -364,6 +445,15 @@
 
     // test 
     background-color: #fff;
+
+    @include respond(phone) {
+        margin-right: 0;
+        margin-bottom: 3rem;
+    }
+
+    @include respond(tab-port) {
+        padding: 2rem 1rem;
+    }
 }
 
 .paragraph:not(:last-of-type) {
@@ -504,6 +594,11 @@
         font-weight: 300;
     }
 
+
+    @include respond(tab-port) {
+        padding: 2rem;
+    }
+
 }
 
 .cta {
@@ -518,3 +613,72 @@
     }
 }
 
+.user-nav {
+    
+    &__user {
+        position: relative;
+
+        
+    }
+
+    &__user:hover .dropmenu {
+        opacity: 1;
+        visibility: visible;
+    }
+
+}
+
+.dropmenu {
+
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    width: 110%;
+    box-shadow: 0 1rem 4rem rgba(#000 , .25);
+    border-radius: 2px;
+    font-size: 1.4rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .2s;
+
+    &::before {
+        content: '';
+        height: 3rem;
+        width: 3rem;
+        background-color: #fff;
+        position: absolute;
+        top: -.2rem;
+        left: 50%;
+        transform: translateX(-50%) rotateZ(45deg);
+        z-index: -1;
+    }
+
+    &__list {
+        list-style: none;
+        padding: .5rem 0;
+        
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        padding: 0.5rem 2rem;
+        color: var(--color-grey-dark-2);
+        transition: background-color .2s;
+
+        &:hover {
+            background-color: pink;
+        }
+    }
+
+    &__icon {
+        display: inline-block;
+        height: 1.5rem;
+        width: 1.5rem;
+        fill: currentColor;
+        margin-right: .5rem ;
+    }
+}
