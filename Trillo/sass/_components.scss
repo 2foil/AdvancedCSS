@@ -243,11 +243,67 @@
 
 .gallery {
     display: flex;
-    line-height: 0;
 
+    &__caption {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 100%);
+        transition: all .3s;
+        opacity: 0;
+        visibility: hidden;
+
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 2.5rem;
+    }
+
+    &__item {
+        position: relative;
+        overflow: hidden;
+        backface-visibility: hidden;
+        
+
+        &:hover {
+            img {
+                transform: scale(1);
+                filter: blur(3px) brightness(.9);
+            }
+
+            figcaption {
+                transform: translate(-50%, -50%);
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
     &__item img {
         width: 100%;
         display: block;
+        transform: scale(1.2);
+        transition: all .3s;
+    }
+
+
+    &__item::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
+        transition: all .3s;
+        opacity: 0.15;
+
+    }
+
+    &__item:hover::before {
+        clip-path: polygon(0 0, 100% 0, 100% 20%, 0 20%);
+        opacity: .5;
     }
 }
 
@@ -642,6 +698,7 @@
     opacity: 0;
     visibility: hidden;
     transition: all .2s;
+    z-index: 1;
 
     &::before {
         content: '';
