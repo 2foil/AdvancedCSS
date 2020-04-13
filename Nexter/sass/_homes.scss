@@ -1,4 +1,60 @@
 .homes {
-    background-color: $color-grey-light-2;
     grid-column: center-start / center-end;
+
+    padding: 15rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 7rem;
+
+}
+
+.home {
+    background-color: $color-grey-light-1;
+    font-size: 1.5rem;
+    position: relative;
+
+    &__like {
+        position: absolute;
+        width: 2.5rem;
+        height: 2.5rem;
+        fill: $color-primary;
+        top: 1rem;
+        right: 1rem;
+    }
+    
+    &__picture {
+        width: 100%;
+        display: block;
+    }
+
+    &__name {
+        background-color: $color-secondary;
+        padding: 1.25rem ;
+        color: #fff;
+        font-size: 1.6rem;
+        font-family: $font-display;
+        width: 80%;
+        margin: 0 auto;
+        transform: translateY(-50%);
+        text-align: center;
+    }
+
+    &__props {
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 3.5rem;
+    }
+
+    &__prop {
+        display: flex;
+        align-items: center;
+    }
+
+    &__icon {
+        height: 2rem;
+        width: 2rem;
+        fill: $color-primary;
+        margin-right: 1rem;
+    }
 }
