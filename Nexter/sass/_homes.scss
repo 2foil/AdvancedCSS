@@ -12,6 +12,7 @@
     background-color: $color-grey-light-1;
     font-size: 1.5rem;
     position: relative;
+    box-shadow: 0 1.5rem 2rem rgba(#000000, .2);
 
     &__like {
         position: absolute;
