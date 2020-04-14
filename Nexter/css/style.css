@@ -8,6 +8,9 @@
 html {
   font-size: 62.5%;
   box-sizing: border-box; }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 50%; } }
 
 body {
   font-family: "Nunito", sans-serif;
@@ -17,6 +20,13 @@ body {
   display: grid;
   grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
   grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; }
+  @media only screen and (max-width: 62.5em) {
+    body {
+      grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content);
+      grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; } }
+  @media only screen and (max-width: 50em) {
+    body {
+      grid-template-rows: 6rem calc(100vh - 6rem); } }
 
 .heading-1, .heading-2, .heading-3, .heading-4 {
   font-family: "Josefin Sans", sans-serif;
@@ -47,6 +57,13 @@ body {
 .sidebar {
   background-color: #c69963;
   grid-row: 1 / -1; }
+  @media only screen and (max-width: 62.5em) {
+    .sidebar {
+      grid-row: 1 / 2;
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center; } }
   .sidebar__btn {
     cursor: pointer;
     height: 3.6rem;
@@ -54,6 +71,11 @@ body {
     margin: 2.5rem auto;
     display: flex;
     align-items: center; }
+    @media only screen and (max-width: 62.5em) {
+      .sidebar__btn {
+        width: 4.8rem;
+        margin: 0;
+        margin-right: 3rem; } }
   .sidebar__btn:hover .sidebar__icon::after {
     top: 1.6rem; }
   .sidebar__btn:hover .sidebar__icon::before {
@@ -92,6 +114,12 @@ body {
   grid-template-columns: minmax(min-content, max-content);
   grid-row-gap: 1.5rem;
   justify-content: center; }
+  @media only screen and (max-width: 50em) {
+    .header {
+      grid-column: 1 / -1; } }
+  @media only screen and (max-width: 37.5em) {
+    .header {
+      padding: 3rem 4rem; } }
   .header__logo {
     justify-self: center; }
   .header .btn {
@@ -119,7 +147,8 @@ body {
     justify-items: center;
     grid-column-gap: 3rem; }
     .header__seenon-logos img {
-      height: 2.5rem;
+      max-height: 2.5rem;
+      max-width: 100%;
       filter: brightness(80%); }
 
 .realtor {
@@ -131,6 +160,9 @@ body {
   align-items: center; }
   .realtor .heading-3 {
     margin-bottom: 2rem; }
+  .realtor__items {
+    display: flex;
+    flex-direction: column; }
   .realtor__item {
     display: flex;
     align-items: center;
@@ -146,6 +178,27 @@ body {
     font-family: "Josefin Sans", sans-serif; }
   .realtor__sale {
     color: #aaa; }
+  @media only screen and (max-width: 50em) {
+    .realtor {
+      grid-column: 1 / -1;
+      padding: 3rem 0; }
+      .realtor__items {
+        flex-direction: row;
+        align-self: stretch;
+        justify-content: space-around;
+        padding: 0 5vw; } }
+  @media only screen and (max-width: 37.5em) {
+    .realtor__item {
+      flex-direction: column;
+      margin-bottom: 0; }
+    .realtor__img {
+      height: 5rem;
+      margin-right: 0;
+      margin-bottom: 1rem; }
+    .realtor__name {
+      font-size: 1.3rem; }
+    .realtor__sale {
+      font-size: .9rem; } }
 
 .features {
   grid-column: center-start / center-end;
@@ -204,6 +257,21 @@ body {
   font-style: italic;
   margin-bottom: 4rem; }
 
+@media only screen and (max-width: 50em) {
+  .story__pictures {
+    justify-content: start;
+    grid-column: 1 / -1;
+    padding: 6rem;
+    padding-top: 3rem; }
+  .story__content {
+    grid-column: 1 / -1;
+    grid-row: 5 / 6; }
+  .story__img--1 {
+    width: 70%; }
+  .story__img--2 {
+    width: 45%;
+    transform: translateY(-50%); } }
+
 .btn {
   padding: 1.8rem 3rem;
   text-transform: uppercase;
@@ -213,7 +281,7 @@ body {
   border: none;
   background-color: #c69963;
   cursor: pointer;
-  transition: background-color .2s;
+  transition: background-color 0.2s;
   font-family: "Josefin Sans", sans-serif; }
   .btn:hover {
     background-color: #B28451; }

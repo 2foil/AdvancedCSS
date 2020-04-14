@@ -1,11 +1,20 @@
 .header {
     background-color: $color-grey-dark-1;
     grid-column: full-start / col-end 6;
+
+    @media only screen and (max-width: $bg-medium) {
+        grid-column: 1 / -1;
+    }
+
     background-image: linear-gradient(to right, rgba($color-secondary, .93), rgba($color-secondary, .93)),url(../img/hero.jpeg);
     background-position: center;
     background-size: cover;
     padding: 8rem 13rem;
     padding-top: 4rem;
+
+    @media only screen and (max-width: $bg-small) {
+        padding: 3rem 4rem;
+    }
 
     display: grid;
     grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;
@@ -81,7 +90,8 @@
         grid-column-gap: 3rem;
 
         img {
-            height: 2.5rem;
+            max-height: 2.5rem;
+            max-width: 100%;
             filter: brightness(80%);
         }
     }

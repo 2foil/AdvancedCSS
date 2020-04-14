@@ -2,9 +2,9 @@
     background-color: $color-secondary;
     grid-column: col-start 7 / full-end;
 
+
     display: flex;
     flex-direction: column;
-
     justify-content: center;
     align-items: center;
 
@@ -12,6 +12,10 @@
         margin-bottom: 2rem;
     }
 
+    &__items {
+        display: flex;
+        flex-direction: column;
+    }
 
     &__item {
         display: flex;
@@ -34,4 +38,40 @@
     &__sale {
         color: #aaa;
     }
+
+
+    @media only screen and (max-width: $bg-medium) {
+        grid-column: 1 / -1;
+        padding: 3rem 0;
+
+        &__items {
+            flex-direction: row;
+            align-self: stretch;
+            justify-content: space-around;
+            padding: 0 5vw;
+        }
+    }
+
+    @media only screen and (max-width: $bg-small) {
+        &__item {
+            flex-direction: column;
+            margin-bottom: 0;
+        }
+
+        &__img {
+            height: 5rem;
+            margin-right: 0;
+            margin-bottom: 1rem;
+        }
+
+        &__name { 
+            font-size: 1.3rem;
+        }
+
+        &__sale {
+            font-size: .9rem;
+        }
+
+    }
+
 }
